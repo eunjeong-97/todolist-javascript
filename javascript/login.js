@@ -1,5 +1,6 @@
 const USERNAME_KEY = 'username';
 const HIDDEN_CLASSNAME = 'hidden';
+
 const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 const greeting = document.querySelector('#greeting');
@@ -18,7 +19,7 @@ function handleLoginSubmit(event) {
 }
 
 function writeGreetings(username) {
-  const GREETING_CONTENTS = `Hello, ${username}`;
+  const GREETING_CONTENTS = `${username}님 환영합니다!`;
   greeting.innerText = GREETING_CONTENTS;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
