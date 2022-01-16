@@ -13,10 +13,31 @@
       <p></p>
     </h2>
 
+    <form id="login-form">
+      <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="please write your name..."
+      />
+      <button>Login</button>
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
+    <button>localStorage Remove</button>
+
+    <form id="todo">
+      <input required type='text' placeholder='What is your main focus for today?' />
+    </form>
+
+    <h3 id="todo-list"></h3>
+
+    <h3 id="quote">
+      <p></p>
+      <p></p>
+    </h3>
+
     <h3 id="weather-info">
       <p></p>
-      <!-- 16° / 맑음 -->
-      <!-- 용산 -->
       <p></p>
     </h3>
 
@@ -25,26 +46,11 @@
       <p></p>
     </h3>
 
-    <form id="login-form">
-      <input
-        required
-        maxlength="15"
-        type="text"
-        placeholder="please write your name..."
-      />
-      <input type="submit" value="Login" />
-    </form>
-    <h1 id="greeting" class="hidden"></h1>
-    <input type="button" value='localStorage Remove' />
-
-    <h3 id="quote">
-      <p></p>
-      <p></p>
-    </h3>
     <script src="javascript/login.js"></script>
     <script src="javascript/clock.js"></script>
     <script type="module" src="javascript/weather.js"></script>
     <script src="javascript/quote.js"></script>
     <script type="module" src="javascript/background.js"></script>
+    <script src="javascript/todo.js"></script>
   </body>
 </html>

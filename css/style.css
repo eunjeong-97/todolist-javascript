@@ -18,7 +18,14 @@ body > * {
 }
 
 input {
-  /* background-color: tomato; */
+  color: black;
+}
+
+button {
   color: black;
   font-weight: 600;
+}
+
+#todo-list {
+  color: tomato;
 }

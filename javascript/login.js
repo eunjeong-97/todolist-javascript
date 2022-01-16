@@ -5,7 +5,7 @@ const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 const greeting = document.querySelector('#greeting');
 const saved_username = localStorage.getItem(USERNAME_KEY);
-const removeButton = document.querySelector('button');
+const removeButton = document.querySelector('#greeting + button');
 
 loginForm.addEventListener('submit', handleLoginSubmit);
 removeButton.addEventListener('click', removeLocalstorage);
@@ -26,6 +26,7 @@ function writeGreetings(username) {
 
 function removeLocalstorage() {
   localStorage.removeItem(USERNAME_KEY);
+  localStorage.removeItem("todo");
   location.reload();
 }
 
