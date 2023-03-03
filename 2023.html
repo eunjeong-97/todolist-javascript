@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/index.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script async src="javascript/index.js"></script>
+    <title>2023 바닐라JS 졸업과제</title>
+</head>
+
+<body>
+    <div class="computerBg">
+        <main class="screen"></main>
+        <div class="modal-tp"></div>
+    </div>
+
+    <!-- template -->
+    <template id="login-screen">
+        <form class="container">
+            <span class="time bold"></span>
+            <div class="profile"></div>
+            <p class="bold">반갑습니다</p>
+            <input type="text" placeholder="이름을 입력하세요" />
+        </form>
+        <link rel="stylesheet" href="style/login.css" />
+    </template>
+
+    <template id="todo-screen">
+        <div class="todo-wrap">
+            <form>
+                <p class="bold name"></p>
+                <div id="btn">할일추가 +</div>
+                <ul></ul>
+            </form>
+        </div>
+        <link rel="stylesheet" href="style/todo.css" />
+    </template>
+
+    <template id="modal-screen">
+        <div class="container">
+            <p></p>
+            <div class="close"></div>
+            <div class="row">
+                <button>수정하기</button>
+                <button>삭제하기</button>
+            </div>
+            <form></form>
+        </div>
+        <link rel=" stylesheet" href="style/modal.css" />
+    </template>
+
+    <template id="weather-screen">
+        <div class="container">
+            <span class="time bold"></span>
+        </div>
+        <link rel=" stylesheet" href="style/weather.css" />
+    </template>
+</body>
+
+</html>

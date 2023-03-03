@@ -1,0 +1,46 @@
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #d87474;
+  outline: none;
+  padding-bottom: 5px;
+  font-family: "Pretendard Variable";
+  color: #d87474;
+}
+input::placeholder {
+  color: #d87474;
+  font-family: "Pretendard Variable";
+}
+
+.todo-wrap {
+  display: flex;
+}
+
+.weather-wrap,
+form {
+  flex: 1;
+}
+
+form > div {
+  background-color: #f2f2f2;
+  color: #d87474;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 700;
+}
+
+ul {
+  padding-left: 0;
+  color: white;
+}
+
+ul > li {
+  list-style: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.name {
+  color: white;
+  font-size: 20px;
+}

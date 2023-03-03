@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  color: white;
+}
+.time {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.profile {
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background: no-repeat url("../assets/img/profile.png");
+  background-size: contain;
+}
+
+p {
+  margin: 20px 0;
+}
+
+input {
+  background: linear-gradient(to right, #d87474, #9198e5);
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: white;
+  font-family: "Pretendard Variable";
+  font-weight: 600;
+}
+input::placeholder {
+  color: white;
+  font-family: "Pretendard Variable";
+  font-weight: 400;
+}
