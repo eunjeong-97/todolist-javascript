@@ -1,0 +1,48 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css");
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pretendard Variable";
+  background-repeat: no-repeat;
+}
+.computerBg {
+  background: url("../assets/img/computer.png") no-repeat;
+  background-size: contain;
+  width: 50%;
+  aspect-ratio: 4403/3284;
+}
+main {
+  width: calc(100% - 5%);
+  aspect-ratio: 1193/684;
+  margin: 2.5%;
+  background: linear-gradient(180deg, #0a1e50, #283685);
+  border-radius: 5px;
+  display: flex;
+}
+.modal-tp {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+weather-screen,
+todo-screen,
+login-screen {
+  flex: 1;
+}
+
+/* fonts */
+.bold {
+  font-weight: 700;
+  font-size: 20px;
+}
+
