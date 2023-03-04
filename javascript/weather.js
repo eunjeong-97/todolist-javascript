@@ -1,14 +1,14 @@
-import { WEATHER_API_KEY } from '../config.js';
+import { WEATHER_API_KEY } from "../config.js";
 
-const weather = document.querySelector('#weather-info p:first-child');
-const city = document.querySelector('#weather-info p:last-child');
-const sunrise = document.querySelector('#sun p:first-child');
-const sunset = document.querySelector('#sun p:last-child');
+const weather = document.querySelector("#weather-info p:first-child");
+const city = document.querySelector("#weather-info p:last-child");
+const sunrise = document.querySelector("#sun p:first-child");
+const sunset = document.querySelector("#sun p:last-child");
 
 function formatTime(time) {
-  return `${String(time.getHours()).padStart(2, '0')}:${String(
+  return `${String(time.getHours()).padStart(2, "0")}:${String(
     time.getMinutes()
-  ).padStart(2, '0')}:${String(time.getSeconds()).padStart(2, '0')}`;
+  ).padStart(2, "0")}:${String(time.getSeconds()).padStart(2, "0")}`;
 }
 
 function success(position) {
@@ -18,8 +18,9 @@ function success(position) {
   fetch(weatherURL)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       const sensibleTemperature = data.main.feels_like;
-      const weatherDescription = data.weather['0'].main;
+      const weatherDescription = data.weather["0"].main;
       const cityName = data.name;
       const sunriseTime = formatTime(new Date(data.sys.sunrise * 1000));
       const sunsetTime = formatTime(new Date(data.sys.sunset * 1000));
@@ -30,7 +31,8 @@ function success(position) {
     });
 }
 function fail() {
-  alert('위치를 알아내는데 실패했습니다.');
+  alert("위치를 알아내는데 실패했습니다.");
 }
 
 navigator.geolocation.getCurrentPosition(success, fail);
+

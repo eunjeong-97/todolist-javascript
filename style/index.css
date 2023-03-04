@@ -3,11 +3,11 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: wheat;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Pretendard Variable";
+  background-repeat: no-repeat;
 }
 .computerBg {
   background: url("../assets/img/computer.png") no-repeat;
@@ -35,7 +35,8 @@ main {
   align-items: center;
 }
 weather-screen,
-todo-screen {
+todo-screen,
+login-screen {
   flex: 1;
 }
 
@@ -44,3 +45,4 @@ todo-screen {
   font-weight: 700;
   font-size: 20px;
 }
+

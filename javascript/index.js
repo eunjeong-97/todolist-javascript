@@ -1,16 +1,32 @@
 const username = localStorage.getItem("@username");
 const todos = JSON.parse(localStorage.getItem("@todos")) || [];
-const modalBg = document.querySelector(".modal-tp");
 
+const modalBg = document.querySelector(".modal-tp");
 const screen = document.querySelector("main");
+
+const ImageUrl =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyw7dUqHzR50-ejmTPOv-TtWCk6tduVbZzYzZbETDxEMpIzoWW9sb-spNM_ANyfQtIVrk&usqp=CAU";
+const WEATHER_KEY = "4ae2bb77305e4ea91ace1ae6410c0fe1";
+let isClickBtn = false;
+let isModal = false;
+let currentId = "";
+
 const login = document.createElement("login-screen");
 const weather = document.createElement("weather-screen");
 const todo = document.createElement("todo-screen");
 const modal = document.createElement("modal-screen");
 
-let isClickBtn = false;
-let isModal = false;
-let currentId = "";
+const getImage = () => {
+  const body = document.querySelector("body");
+  const WINDOW_WIDTH = window.innerWidth;
+  const WINDOW_HEIGHT = window.innerHeight;
+  const IMG_API = `https://picsum.photos/${WINDOW_WIDTH}/${WINDOW_HEIGHT}`;
+  console.log("getImage", IMG_API);
+  body.style.backgroundImage = `url(${IMG_API})`;
+};
+
+getImage();
+window.addEventListener("resize", getImage);
 
 const getTime = () => {
   const hour = new Date().getHours().toString().padStart(2, "0");
@@ -25,9 +41,6 @@ if (!username) {
   screen.appendChild(weather);
   screen.appendChild(todo);
 }
-
-const ImageUrl =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyw7dUqHzR50-ejmTPOv-TtWCk6tduVbZzYzZbETDxEMpIzoWW9sb-spNM_ANyfQtIVrk&usqp=CAU";
 
 class Login extends HTMLElement {
   connectedCallback() {
@@ -158,19 +171,30 @@ class Weather extends HTMLElement {
     this.shadowRoot.append(
       document.querySelector("#weather-screen").content.cloneNode(true)
     );
+
+    const [time, space, weather] = this.shadowRoot.querySelectorAll("p");
+    const img = this.shadowRoot.querySelector("img");
+
     // 시간
     setInterval(() => {
-      const time = this.shadowRoot.querySelector(".time");
       time.innerText = getTime();
     }, 1000);
 
     // 날씨
-    const WEATHER_API =
-      "http://apis.data.go.kr/1360000/WthrChartInfoService/getSurfaceChart";
-    const serviceKey = "";
-    const data = axios.get(WEATHER_API, {
-      params: { serviceKey, serviceKey: "JSON" },
-    });
+    navigator.geolocation?.getCurrentPosition(
+      async (position) => {
+        const { latitude: lat, longitude: lon } = position.coords;
+        const WEATHER_API = "https://api.openweathermap.org/data/2.5/weather";
+        const params = { lat, lon, appid: WEATHER_KEY };
+        const { data } = await axios.get(WEATHER_API, { params });
+        const { main, icon } = data.weather[0];
+        space.innerText = data.name;
+        weather.innerText = main;
+        img.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+      },
+      () => console.log("좌표불러오기 실패")
+    );
+    // lat: 위도, lon: 경도
   }
 }
 
@@ -178,3 +202,4 @@ customElements.define("login-screen", Login);
 customElements.define("todo-screen", Todo);
 customElements.define("modal-screen", Modal);
 customElements.define("weather-screen", Weather);
+
